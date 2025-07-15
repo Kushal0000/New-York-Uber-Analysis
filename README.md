@@ -1,75 +1,70 @@
-🚖 Uber NYC Ride Data Analysis (2014–2015)
-This project presents a comprehensive analysis of Uber ride data in New York City, leveraging data science techniques to uncover patterns in user behavior, peak demand periods, and geographic ride concentrations. The project applies data wrangling, exploratory data analysis (EDA), time-series breakdown, interactive visualization, and geospatial heat mapping to generate meaningful business insights.
+# 🚖 Uber NYC Ride Data Analysis (2014–2015)
 
-📌 Objective
-To perform end-to-end data analysis on Uber’s public NYC datasets from 2014–2015 with the goals of:
+This project analyzes Uber ride data in New York City using data science techniques to identify trends in ride volume, peak hours, and geographic hot spots. The goal is to uncover insights that can inform operations, marketing, and urban planning.
 
-Identifying temporal and geographic patterns in ride demand
+---
 
-Visualizing ride density across boroughs and timeframes
+## 📌 Objective
 
-Supporting data-driven decisions for marketing, staffing, and logistics
+Analyze Uber’s public ride datasets from 2014–2015 to:
 
-🧰 Tools & Technologies
-Category	Tools Used
-Programming	Python 3.x
-Libraries	pandas, numpy, matplotlib, seaborn, plotly, folium
-Data Handling	CSV ingestion, time parsing, missing value handling
-Visualization	Bar plots, point plots, box plots, interactive maps
-Geospatial Analysis	folium, HeatMap
-Environment	Jupyter Notebook, Anaconda, GitHub
+- Identify **temporal and geographic patterns** in ride demand  
+- Visualize ride density and behavior across boroughs and times  
+- Provide **actionable insights** to optimize business decisions
 
-📁 Dataset Overview
-Datasets are sourced from the NYC Taxi & Limousine Commission and Uber's FOIL release.
+---
 
-uber-raw-data-[apr14–sep14].csv
+## 🧰 Tools & Technologies
 
-uber-raw-data-janjune-15_sample.csv
+| Category           | Tools Used                                               |
+|--------------------|----------------------------------------------------------|
+| Programming        | Python 3.x                                               |
+| Libraries          | `pandas`, `numpy`, `matplotlib`, `seaborn`, `plotly`, `folium` |
+| Visualization      | Bar charts, Point plots, Box plots, Heatmaps             |
+| Geospatial Mapping | `folium`, `HeatMap` plugin                               |
+| Environment        | Jupyter Notebook, Anaconda, GitHub                       |
 
-Uber-Jan-Feb-FOIL.csv (Active vehicles & trips by base)
+---
 
-🔍 Key Features & Workflow
-1. Data Cleaning & Preprocessing
-Removed 82,000+ duplicate records
+## 📁 Dataset Overview
 
-Converted timestamp strings to datetime objects
+| Dataset Name                              | Description                                  |
+|------------------------------------------|----------------------------------------------|
+| `uber-raw-data-[apr14–sep14].csv`        | Monthly raw trip data                        |
+| `uber-raw-data-janjune-15_sample.csv`    | Sample Uber trip data (Jan–June 2015)        |
+| `Uber-Jan-Feb-FOIL.csv`                  | Base-level active vehicle & trip info        |
 
-Extracted features: Month, Weekday, Hour, Minute
+---
 
-Handled missing values in affiliated base numbers
+## 🔍 Key Features & Workflow
 
-2. Exploratory Data Analysis
-Created pivot tables to compare ride frequency by day & hour
+### 🧹 1. Data Cleaning
+- Removed **82,000+ duplicates**
+- Converted timestamp strings to `datetime`
+- Extracted time features: `Month`, `Weekday`, `Hour`, `Minute`
+- Addressed missing values in base number fields
 
-Analyzed ride patterns across different months and weekdays
+### 📊 2. Exploratory Data Analysis (EDA)
+- Created pivot tables by **weekday and hour**
+- Visualized hourly ride patterns with `seaborn.pointplot`
+- Generated monthly trends using `pandas` and `matplotlib`
 
-Used seaborn point plots to reveal hourly demand cycles
+✅ Insights:
+- High demand on **Thursdays, Fridays, and Saturdays**
+- Peak hours between **9 PM – 12 AM**, especially on weekends
 
-Insights generated include:
+### 📦 3. Uber FOIL Data Exploration
+- Analyzed active vehicle and trip volume by dispatch base
+- Visualized base activity using interactive `plotly.box`
 
-Highest activity on Thursdays, Fridays, and Saturdays
+### 🌍 4. Geospatial Heatmaps
+- Aggregated latitude/longitude pairs to count ride density
+- Used `folium` + `HeatMap` to generate interactive NYC heatmaps
 
-Peak hour consistently around 11 PM on weekends
+---
 
-3. Uber FOIL Data Analysis
-Analyzed active vehicle distribution by base number
+## 📊 Sample Insights
 
-Visualized base performance via plotly box plots
-
-Detected patterns in fleet deployment and trip volumes
-
-4. Geospatial Heat Mapping
-Grouped ride pickup coordinates (latitude, longitude)
-
-Generated interactive heat maps using folium to highlight high-density areas
-
-Visualized geographic ride intensity to support operational decisions
-
-📊 Sample Insights
-Weekend evenings (9 PM–12 AM) show the highest customer demand
-
-Base B02764 recorded the most trips across Jan–Feb 2015
-
-Manhattan and Brooklyn were the dominant ride zones
-
-Data suggests strong opportunities for resource reallocation during peak periods
+- **Saturday 11 PM** is peak ride time — target for promos/staffing  
+- **Base B02764** had highest trip count in early 2015  
+- **Manhattan & Brooklyn** were high-density ride zones
